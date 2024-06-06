@@ -1,9 +1,41 @@
-import { View,Text,StyleSheet,TouchableOpacity } from "react-native";
+import { View,Text,StyleSheet,TouchableOpacity,Pressable } from "react-native";
+import * as Clipboard from 'expo-clipboard'
 
-export function ModalPassword(){
+
+export function ModalPassword({password , handleClose}){
+
+    async function handleCopyPassword(){
+        await Clipboard.setStringAsync(password)
+        alert("senha salva com sucesso")
+
+        handleClose();
+    }
+
     return(
         <View style = {styles.container}>
-            <Text>teste modal</Text>
+
+            <View style = {styles.content}>
+                <Text style = {styles.title}>Senha Gerada</Text>
+
+                <Pressable style = {styles.innerPassword} onLongPress={handleCopyPassword}>
+                    <Text style ={styles.text}>
+                        {password}
+                    </Text>
+                </Pressable>
+
+                <View style = {styles.buttonArea}>
+                    <TouchableOpacity style= { styles.button} onPress={handleClose}>
+                        <Text style = { styles.buttonText}>Voltar</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style= {[ styles.button, styles.ButtonSave]}>
+                        <Text style = { styles.buttonSaveText} >Salvar senha</Text>
+                    </TouchableOpacity>
+
+                </View>
+
+            </View>
+
         </View>
     )
 }
@@ -14,6 +46,53 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:"center",
         justifyContent:"center"
+    },
+    content:{
+        backgroundColor:"#FFF",
+        width:"85%",
+        paddingTop:24,
+        paddingBottom: 24,
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:8
+    },
+    title:{
+        fontSize:20,
+        fontWeight: "bold",
+        color:"#000",
+        marginBottom: 24
+    },
+    innerPassword:{
+        backgroundColor:"#0e0e0e",
+        width:'90%',
+        padding:14,
+        borderRadius:8
+    },
+    text:{
+        color:"#FFF",
+        textAlign:'center'
+    },
+    buttonArea:{
+        flexDirection:"row",
+        width:'90%',
+        marginTop:8,
+        alignItems:"center",
+        justifyContent:"space-between"
+    },
+    button:{
+        flex:1,
+        alignItems:'center',
+        marginTop:14,
+        marginBottom:14,
+        padding:8
+    },
+    ButtonSave:{
+        backgroundColor:"#392DE9",
+        borderRadius:8,
+    },
+    buttonSaveText:{
+        color:"#FFF",
+        fontWeight:'bold'
     }
 })
 

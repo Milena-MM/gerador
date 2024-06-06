@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { View,Text,StyleSheet, Image, TouchableOpacity,Modal} from "react-native"
 import Slider from "@react-native-community/slider";
-import { ModalPassword } from "./src/components/modal";
+import { ModalPassword } from "../../components/modal";
 
 
 let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-export default function App(){
+export  function home(){
   const [size , setSize] = useState(10)
   const [passwordValue,setPasswordValue] = useState("")
   const [modalVisible,setModalVisible]= useState("false")
@@ -25,7 +25,7 @@ export default function App(){
   return(
     <View style = {styles.container}>
      <Image 
-     source={require ("./src/Assets/logo.png")}
+     source={require ("../../Assets/logo.png")}
      />
 
      <Text style = {styles.title}>{size} Caracteres</Text>
