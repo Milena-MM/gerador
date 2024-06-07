@@ -6,7 +6,7 @@ import { ModalPassword } from "../../components/modal";
 
 let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-export  function home(){
+export function Home(){
   const [size , setSize] = useState(10)
   const [passwordValue,setPasswordValue] = useState("")
   const [modalVisible,setModalVisible]= useState("false")
@@ -95,3 +95,5 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
   }
 });
+
+export default  Home;

@@ -8,6 +8,6 @@ export function Passwords(){
     )
 }
 
-const style = StyleSheet.create(){
+const style = StyleSheet.create({
     
-}
+})
