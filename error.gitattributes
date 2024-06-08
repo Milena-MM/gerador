@@ -1,0 +1,4 @@
+# Trata todos os arquivos de texto como texto e converte automaticamente os finais de linha
+* text=auto
+
+# Exceções específicas de arquivos podem ser adicionadas aqui
